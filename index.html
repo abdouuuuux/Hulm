@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
+  <title>Huml Demo - Web (Leaflet)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+  <header>
+    <h1>Huml</h1>
+    <div class="wallet" id="wallet">رصيد: — دج</div>
+  </header>
+
+  <main>
+    <section class="left">
+      <div class="auth card" id="authCard">
+        <h2>تسجيل / دخول</h2>
+        <input id="name" placeholder="الاسم" />
+        <input id="phone" placeholder="رقم الهاتف" />
+        <input id="age" placeholder="العمر" type="number" />
+        <input id="photo" placeholder="رابط صورة (اختياري)" />
+        <button id="loginBtn" class="btn">تسجيل</button>
+      </div>
+
+      <div class="search card">
+        <div class="filters">
+          <select id="tripType">
+            <option value="all">الكل</option>
+            <option value="bivouac">Bivouac</option>
+            <option value="randonnee">Randonnée</option>
+          </select>
+          <input id="searchInput" placeholder="ابحث عن وجهة..." />
+          <button id="notifyToggle" class="btn small">تشغيل إشعار للوجهة</button>
+        </div>
+      </div>
+
+      <div class="trips card">
+        <h3>الرحلات المتاحة</h3>
+        <ul id="tripList"></ul>
+      </div>
+
+      <div class="equipment card">
+        <h3>كراء معدات التخييم</h3>
+        <div class="soon">
+          <img src="assets/images/tent_icon.svg" alt="tent" />
+          <span>قريبًا</span>
+        </div>
+      </div>
+
+      <div class="admin card">
+        <h3>لوحة المنظم (مبسط)</h3>
+        <p>عرض الحجوزات: <button id="showBookings" class="btn small">عرض</button></p>
+        <div id="bookingsList"></div>
+      </div>
+    </section>
+
+    <section class="map-area card">
+      <div id="map" style="height:100%; width:100%"></div>
+      <div class="map-ctrls">
+        <button id="locateBtn" class="btn small">أظهر موقعي</button>
+        <button id="demoTripBtn" class="btn small">إنشاء رحلة تجريبية</button>
+      </div>
+    </section>
+
+    <section class="right card" id="seatPanel" style="display:none">
+      <h3 id="tripTitle">خريطة المقاعد</h3>
+      <div id="tripInfo"></div>
+      <div id="seatMap"></div>
+      <div class="payControls">
+        <label><input type="radio" name="pay" value="online" checked /> الدفع إلكترونياً</label>
+        <label><input type="radio" name="pay" value="cash" /> دفع نقداً</label>
+        <button id="confirmBooking" class="btn">تأكيد الحجز</button>
+      </div>
+      <div id="bookingResult"></div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Demo — Leaflet + OpenStreetMap (مجاني للاستخدام البسيط)</small>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
